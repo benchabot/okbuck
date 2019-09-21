@@ -99,7 +99,7 @@ public class DependencyManager {
 
     rawDeps
         .stream()
-        .collect(Collectors.groupingBy(i -> i.getGroup() + ":" + i.getVersion()))
+        .collect(Collectors.groupingBy(i -> i.getGroup() + "--" + i.getVersion()))
         .entrySet()
         .forEach(
             e -> {
@@ -351,7 +351,7 @@ public class DependencyManager {
       try {
         FileUtils.deleteDirectory(cacheDir);
       } catch (IOException e) {
-        throw new RuntimeException("Could not delete dependency directory: " + cacheDir);
+        throw new RuntimeException("Could not delete dependency directory: " + cacheDir, e);
       }
     }
 
