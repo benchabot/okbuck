@@ -117,7 +117,7 @@ def addCommonConfigurationForAndroidModules(Project project) {
 
             project.afterEvaluate { proj ->
                 Task okbuckTask = proj.tasks.getByName("okbuck")
-                Task sqlDelightTask = proj.tasks.getByName("generate${it.name.capitalize()}SqlDelightInterface")
+                Task sqlDelightTask = proj.tasks.getByName("generate${it.name.capitalize()}DatabaseInterface")
                 okbuckTask.dependsOn(sqlDelightTask)
             }
         }
